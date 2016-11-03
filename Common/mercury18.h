@@ -58,9 +58,20 @@
  * that the PLL is active.
  */
 
+/* The first batch of Mercury 18s were built with an 8 MHz resonator instead of 
+ * a 16 MHz one.  The following #if #else allows you to set which speed you 
+ * have.
+ */
+#if 1
+/* For Fosc = 32000000 */
+#define BAUD_115200 16
+#define BAUD_38400 51
+#define BAUD_19200 103
+#else
+/* For Fosc = 64000000 */
 #define BAUD_115200 34
 #define BAUD_38400 103
 #define BAUD_19200 207
-
+#endif
 
 #endif	// MERCURY18_H
